@@ -1,0 +1,125 @@
+.left-welcome-main {
+    padding-top: 25%;
+}
+
+.left-welcome-icons {
+    padding-top: 25%;
+}
+
+.height-300{
+    min-height: 300px;
+}
+
+/* .unstyled-link{
+    color: inherit;
+} */
+
+.unstyled-link:hover{
+    /* text-decoration: none; */
+    color: inherit;
+}
+
+.right-welcome {
+    border-bottom-left-radius:35%;
+    background-image: url("../../../assets/images/welcome-boxes-background.png");
+}
+
+img.boxes-image {
+    width: 100%;
+}
+
+.right-welcome-popout {
+    background: white;
+    width: 200px;
+    margin: auto;
+    padding: 8px 15px;
+    border-radius: 13px;
+    margin-top: 70px;
+    transform: translate(-20px, 00px);
+}
+
+.left-why-extraspace {
+    border-top-right-radius:70px;
+    border-bottom-right-radius:70px;
+    background-image: url("../../../assets/images/why-background.png");
+}
+
+.right-why-extraspace {
+    padding-left: 5%;
+}
+
+.right-why-extraspace button {
+    color: white; 
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.why-image-element img{
+    width: 60px;
+}
+
+.why-image-element p{
+    font-size: 15px;
+}
+
+.service-elements{
+    width: 90%;
+}
+
+.service-element-content {
+    border-radius: 39px;
+    background-image: url("../../../assets/images/services-background.png");
+    height: 280px;
+    overflow: hidden;
+}
+
+.has-add-info{
+    cursor: pointer;
+}
+
+.service-element-content:hover .service-element-add-info{
+    margin-left: 1.5rem;
+}
+
+.service-element-title{
+    color: white;
+    text-transform: uppercase;
+    font-size: 25px;
+}
+
+.service-element-add-info{
+    transition: 0.3s;
+}
+
+.service-element-content > img{
+    height: 150%;
+    transform: translate(100%, -60%);
+}
+
+.service-last-element-content{
+    border-radius: 39px;
+    height: 280px;
+    
+}
+
+.service-last-element-title{
+    text-transform: uppercase;
+    font-size: 25px;
+}
+
+.service-last-element-content > ul{
+    list-style: square;
+    font-size: 14px;
+}
+
+.left-about {
+    width: 40%;
+}
+
+.right-about {
+    width: 60%;
+}
+
+/* .about-inner {
+    background-image: url("../../../assets/images/about/about-main.png");
+} */
