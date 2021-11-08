@@ -1,3 +1,10 @@
+:root{
+    --first-color: #253350;
+    --first-color-light: #444f64;
+    --second-color: #E7CF9F;
+    --second-color-light: #f3e2bf;
+}
+
 @font-face {
     font-family: inter;
     src: url(/assets/fonts/inter/Inter-VariableFont_slnt\,wght.ttf);

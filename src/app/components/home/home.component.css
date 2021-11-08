@@ -120,6 +120,10 @@ img.boxes-image {
     width: 60%;
 }
 
+.preorder-view {
+    height: 500px;
+}
+
 /* .about-inner {
     background-image: url("../../../assets/images/about/about-main.png");
 } */

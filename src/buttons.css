@@ -1,0 +1,50 @@
+.es-btn{
+    padding: 0.375rem 0.75rem;
+    text-align: center;
+    border-radius: 0.25rem;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.es-btn:focus{
+    outline: 0;
+}
+
+
+.es-first-btn{
+    background-color: var(--first-color);
+    border: 2px solid var(--first-color);
+    color: white;
+}
+
+.es-first-btn-outline{
+    border: 2px solid var(--first-color);
+    background-color: inherit;
+    color: var(--first-color);
+}
+
+.es-first-btn-outline:hover{
+    background-color: var(--first-color-light);
+    color: white;
+}
+
+
+
+.es-second-btn{
+    background-color: var(--second-color);
+    border: 2px solid var(--second-color);
+    color: var(--first-color);
+}
+
+.es-second-btn-outline{
+    border: 2px solid var(--second-color);
+    background-color: inherit;
+    color: var(--first-color);
+}
+
+.es-second-btn-outline:hover{
+    background-color: var(--second-color-light);
+}
+
+
+

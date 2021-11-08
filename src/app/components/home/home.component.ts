@@ -22,6 +22,19 @@ export class HomeComponent implements OnInit {
     {  title:'Безопасность', additionalInfoLink: null},    
   ]
 
+  preorders: any[] = [
+    { src: '../../../assets/images/orders-description/1_order.png', size: 1, active: true },
+    { src: '../../../assets/images/orders-description/2_order.png', size: 2, active: false },
+    { src: '../../../assets/images/orders-description/3_order.png', size: 8, active: false },
+    { src: '../../../assets/images/orders-description/4_order.png', size: 15, active: false }
+  ]
+
+  monthRows: any[] = [
+    { months: [1, 2, 3, 5] },
+    { months: [6, 7, 9, 12] }
+  ]
+  activeMonth: number = 1;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -35,4 +48,9 @@ export class HomeComponent implements OnInit {
   });
   }
 
+
+  setActiveSize(size){
+    this.preorders.forEach(p => p.active = false)
+    this.preorders.find(p => p == size).active = true;
+  }
 }
