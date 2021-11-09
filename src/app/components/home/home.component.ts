@@ -23,10 +23,34 @@ export class HomeComponent implements OnInit {
   ]
 
   preorders: any[] = [
-    { src: '../../../assets/images/orders-description/1_order.png', size: 1, active: true },
-    { src: '../../../assets/images/orders-description/2_order.png', size: 2, active: false },
-    { src: '../../../assets/images/orders-description/3_order.png', size: 8, active: false },
-    { src: '../../../assets/images/orders-description/4_order.png', size: 15, active: false }
+    { src: '../../../assets/images/orders-description/1_order.png', size: 1 },
+    { src: '../../../assets/images/orders-description/2_order.png', size: 2 },
+    { src: '../../../assets/images/orders-description/3_order.png', size: 8 },
+    { src: '../../../assets/images/orders-description/4_order.png', size: 15 }
+  ]
+  activePreorderSize: number = 1;
+
+  careImages: any[] = [
+    [
+      { src: '../../../assets/images/care/care_1.png' },
+      { src: '../../../assets/images/care/care_2.png' },
+      { src: '../../../assets/images/care/care_3.png' },
+      { src: '../../../assets/images/care/care_4.png' }
+    ],
+
+    [
+      { src: '../../../assets/images/care/care_1.png' },
+      { src: '../../../assets/images/care/care_2.png' },
+      { src: '../../../assets/images/care/care_3.png' },
+      { src: '../../../assets/images/care/care_4.png' }
+    ],
+
+    [
+      { src: '../../../assets/images/care/care_1.png' },
+      { src: '../../../assets/images/care/care_2.png' },
+      { src: '../../../assets/images/care/care_3.png' },
+      { src: '../../../assets/images/care/care_4.png' }
+    ]
   ]
 
   monthRows: any[] = [
@@ -49,8 +73,5 @@ export class HomeComponent implements OnInit {
   }
 
 
-  setActiveSize(size){
-    this.preorders.forEach(p => p.active = false)
-    this.preorders.find(p => p == size).active = true;
-  }
+  
 }

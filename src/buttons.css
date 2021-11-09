@@ -4,6 +4,7 @@
     border-radius: 0.25rem;
     transition: 0.2s;
     cursor: pointer;
+    border: none;
 }
 
 .es-btn:focus{
@@ -24,7 +25,7 @@
 }
 
 .es-first-btn-outline:hover{
-    background-color: var(--first-color-light);
+    background-color: var(--first-color);
     color: white;
 }
 
@@ -43,7 +44,7 @@
 }
 
 .es-second-btn-outline:hover{
-    background-color: var(--second-color-light);
+    background-color: var(--second-color);
 }
 
 

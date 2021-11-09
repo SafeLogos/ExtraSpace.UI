@@ -122,7 +122,25 @@ img.boxes-image {
 
 .preorder-view {
     height: 500px;
+    width: 40%;
 }
+
+.preorder-selection{
+    width: 55%;
+}
+
+.preorder-calculator-head{
+    border-bottom: 2px solid var(--second-color);
+}
+
+.preorder-calculator-footer > div{
+    width: 65%;
+}
+
+.preorder-calculator-footer > button{
+    width: 35%;
+}
+
 
 /* .about-inner {
     background-image: url("../../../assets/images/about/about-main.png");

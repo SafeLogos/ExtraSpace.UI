@@ -16,20 +16,29 @@ body{
     padding-bottom: 100px;
 }
 
+
+p{
+    margin-bottom: 0;
+}
+
 .first-background-color {
-    background-color: #253350;
+    background-color: var(--first-color);
 }
 
 .first-color {
-    color: #253350;
+    color: var(--first-color);
 }
 
 .secondary-background-color {
-    background-color: #E7CF9F;
+    background-color: var(--second-color);
+}
+
+.secondary-light-background-color {
+    background-color: var(--second-color-light);
 }
 
 .second-color {
-    color: #E7CF9F;
+    color: var(--second-color);
 }
 
 .md-icon{
@@ -39,3 +48,12 @@ body{
 .lg-text{
     font-size: 40px;
 }
+
+.md-text{
+    font-size: 25px;
+}
+
+.sm-text{
+    font-size: 13px;
+}
+
