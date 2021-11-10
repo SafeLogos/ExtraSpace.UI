@@ -17,9 +17,9 @@ export class HomeComponent implements OnInit {
   ]
 
   services: any[] = [
-    {  title:'Наши боксы', img: '../../../assets/images/services/door.png', additionalInfoLink: '#test'},
-    {  title:'Облачное хранилище', additionalInfoLink: null},
-    {  title:'Безопасность', additionalInfoLink: null},    
+    {  title:'Наши боксы', img: '../../../assets/images/services/door.png', additionalInfoLink: '#preorders'},
+    {  title:'Облачное хранилище', img: '../../../assets/images/services/boxes.png', additionalInfoLink: null},
+    {  title:'Безопасность', img: '../../../assets/images/services/lock.png', additionalInfoLink: null},    
   ]
 
   preorders: any[] = [
@@ -58,6 +58,13 @@ export class HomeComponent implements OnInit {
     { months: [6, 7, 9, 12] }
   ]
   activeMonth: number = 1;
+
+  ourClients: any[] = [
+    { src: '../../../assets/images/our-clients/client_1.png' },
+    { src: '../../../assets/images/our-clients/client_2.png' },
+    { src: '../../../assets/images/our-clients/client_3.png' },
+    { src: '../../../assets/images/our-clients/client_4.png' }
+  ]
 
   constructor() { }
 

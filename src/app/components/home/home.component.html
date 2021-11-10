@@ -4,9 +4,9 @@
       <div class="d-flex align-items-center p-3">
         <div class="pl-2" style="width: 40%;"> <img style="height:50px;" src="../../../assets/images/logo.png" /></div>
         <div style="width: 60%;" class="d-flex">
-          <a class="first-color unstyled-link animated-link p-2 d-block" href="#">Боксы и цены</a>
-          <a class="first-color unstyled-link animated-link p-2 d-block" href="#">Услуги</a>
-          <a class="first-color unstyled-link animated-link p-2 d-block" href="#">Контакты</a>
+          <a class="first-color unstyled-link animated-link p-2 d-block" (click)="smoothScroll('#preorders')">Боксы и цены</a>
+          <a class="first-color unstyled-link animated-link p-2 d-block" (click)="smoothScroll('#services')">Услуги</a>
+          <a class="first-color unstyled-link animated-link p-2 d-block" (click)="smoothScroll('#contacts')">Контакты</a>
         </div>
       </div>
     </div>
@@ -42,8 +42,7 @@
           <p class="text-white mb-0" style="font-size:23px;font-weight: 300;">+7 (775) 728 61 48</p>
           <p class="text-white text-right mb-0" style="margin-top:-7px; font-size:12px;">Заказать звонок</p>
         </div>
-        <button type="button" class="btn secondary-background-color ml-4 px-5 py-2"
-          style="color: #253350;font-weight: 600;font-size: 18px;"> Сдать вещи</button>
+        <button type="button" class="es-btn es-second-btn-outline es-btn-color-white ml-4 px-5 py-2"> Сдать вещи</button>
       </div>
     </div>
 
@@ -58,7 +57,7 @@
   </div>
 </div>
 
-<div class="why-extraspace d-flex mt-5" id="test">
+<div class="why-extraspace d-flex mt-5">
   <div class="left-why-extraspace w-50">
     <div class="row">
       <div class="why-image-element col-6" *ngFor="let wi of whyImages">
@@ -83,7 +82,7 @@
   </div>
 </div>
 
-<div class="services mt-5">
+<div class="services mt-5" id="services">
   <div class="services-mobile p-4"></div>
   <p class="text-center first-color lg-text"> <b>Услуги складского хранения </b></p>
   <p class="text-center first-color">Компания Extra Space предоставляет несколько видов услуг, <br /> которые сделают
@@ -97,8 +96,8 @@
           <p class="service-element-title mb-0">{{service.title}}</p>
           <div class="h-75"></div>
           <p *ngIf="service.additionalInfoLink" class="service-element-add-info text-white">Узнать подробнее &#8594;</p>
-          <img [src]="service.img" alt="">
-        </div>
+          <img [src]="service.img" alt="service">
+        </div> 
       </div>
 
       <div class="service-last-element col-6">
@@ -120,7 +119,7 @@
 </div>
 
 
-<div class="preorders d-flex mt-5">
+<div class="preorders d-flex mt-5" id="preorders">
   <div class="preorder-view d-flex align-items-center justify-content-center px-4 m-auto">
     <div>
       <img class="w-100" [class.d-none]="activePreorderSize != p.size" *ngFor="let p of preorders" [src]="p.src"
@@ -130,7 +129,10 @@
   </div>
 
   <div class="preorder-selection m-auto">
-    <p class="lg-text first-color"><b>Боксы для хранения вещей</b></p>
+    <div class="d-flex">
+      <p class="lg-text first-color" style="line-height: 0.9;"><b>Боксы для хранения вещей</b></p>
+      <p class="first-color cursor-pointer p-2 w-25 text-right">Таблица цен</p>
+    </div>
     <p class="first-color mb-1">Выберите размер бокса</p>
     <div class="size-buttons d-flex">
       <button class="es-btn mr-2 w-25"
@@ -214,7 +216,16 @@
 </div>
 
 <div class="our-clients mt-5">
-  <div class="our-clients-mobile p-4">
+  <div class="p-4">
     <p class="lg-text first-color text-center"><b>Наши клиенты</b></p>
+    <p class="first-color text-center">Нам доверяют представители различных сфер бизнеса и мы очень ценим их доверие</p>
+    <div class="d-flex mt-3">
+      <div *ngFor="let client of ourClients" class="d-flex align-items-center justify-content-center w-25 p-2">
+        <img [src]="client.src" alt="client" style="height: 100px;">
+      </div>
+    </div>
   </div>
 </div>
+
+
+<iframe style="visibility: hidden;" src="https://yandex.ru/map-widget/v1/?um=constructor%3A941acd588a8f41d333e3ae6e97cf64fa752e3a5c5f246bb49e78782d04a74c61&amp;source=constructor" width="500" height="400" frameborder="0"></iframe>

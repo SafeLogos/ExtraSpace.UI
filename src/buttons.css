@@ -45,7 +45,11 @@
 
 .es-second-btn-outline:hover{
     background-color: var(--second-color);
+    color: var(--first-color);
 }
 
 
 
+.es-btn-color-white{
+    color: white;
+}

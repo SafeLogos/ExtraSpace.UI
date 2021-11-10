@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class KztCurrencyPipe implements PipeTransform {
 
-  transform(value: unknown, arg1: any, arg2: any): unknown {
+  transform(value: unknown, arg1: any): unknown {
     if(!value)
       return '';
     let pipe: DecimalPipe = new DecimalPipe('en-US');

@@ -12,13 +12,24 @@
 
 body{
     font-family: inter;
-    background-color: #e5e5e5;
+    /*background-color: #e5e5e5;*/
+    background-image: url("assets/images/background.png");
     padding-bottom: 100px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 
 p{
     margin-bottom: 0;
+}
+
+.color-white{
+    color: white;
+}
+
+.cursor-pointer{
+    cursor: pointer;
 }
 
 .first-background-color {
@@ -57,3 +68,12 @@ p{
     font-size: 13px;
 }
 
+
+.animated-link{
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.animated-link:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+}
