@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { KztCurrencyPipe } from './pipes/kzt-currency.pipe';
+import { SafePipe } from './pipes/safe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    KztCurrencyPipe
+    KztCurrencyPipe,
+    SafePipe
   ],
   imports: [
     BrowserModule,

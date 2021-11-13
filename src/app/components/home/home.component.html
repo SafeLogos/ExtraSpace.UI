@@ -1,3 +1,25 @@
+<div class="modal fade" id="call-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <p class="lg-text first-color"><b>Заказать звонок</b></p>
+
+      <p>Ваше имя</p>
+      <input class ="w-50" type="text">
+
+      <p>Номер телефона</p>
+      <input class ="w-50" type="text">
+
+      <p>Комментарии</p>
+
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="welcome d-flex">
   <div class="left-welcome w-50">
     <div class="left-welcome-navbar">
@@ -42,7 +64,7 @@
           <p class="text-white mb-0" style="font-size:23px;font-weight: 300;">+7 (775) 728 61 48</p>
           <p class="text-white text-right mb-0" style="margin-top:-7px; font-size:12px;">Заказать звонок</p>
         </div>
-        <button type="button" class="es-btn es-second-btn-outline es-btn-color-white ml-4 px-5 py-2"> Сдать вещи</button>
+        <button type="button" class="es-btn es-second-btn-outline es-btn-color-white ml-4 px-5 py-2" data-toggle="modal" data-target="#call-modal"> Сдать вещи</button>
       </div>
     </div>
 
@@ -57,7 +79,7 @@
   </div>
 </div>
 
-<div class="why-extraspace d-flex mt-5">
+<div class="why-extraspace d-flex mt-5" id="why-extraspace">
   <div class="left-why-extraspace w-50">
     <div class="row">
       <div class="why-image-element col-6" *ngFor="let wi of whyImages">
@@ -88,16 +110,28 @@
   <p class="text-center first-color">Компания Extra Space предоставляет несколько видов услуг, <br /> которые сделают
     Вашу жизнь легче</p>
 
-  <div class="container">
+  <div class="containe mt-2">
     <div class="service-elements row m-auto">
-      <div class="service-element col-6 mb-4" *ngFor="let service of services;"
-        (click)="smoothScroll(service.additionalInfoLink)">
-        <div class="service-element-content p-4" [class.has-add-info]="service.additionalInfoLink">
-          <p class="service-element-title mb-0">{{service.title}}</p>
-          <div class="h-75"></div>
-          <p *ngIf="service.additionalInfoLink" class="service-element-add-info text-white">Узнать подробнее &#8594;</p>
-          <img [src]="service.img" alt="service">
-        </div> 
+      <div class="service-element col-6 mb-4"  *ngFor="let service of services;">
+        <div class="service-element-view">
+          <div class="service-slide-container">
+
+            <div class="service-element-content service-element-content-slide p-4 w-50">
+              <p class="service-element-title first-color mb-0"><b>{{service.title}}</b></p>
+              <ul class="first-color mt-2">
+                <li>{{ service.slideInfo[0] }}</li>
+                <li>{{ service.slideInfo[1] }}</li>
+                <li>{{ service.slideInfo[2] }}</li>
+              </ul>
+            </div> 
+
+            <div class="service-element-content p-4 w-50">
+              <p class="service-element-title mb-0">{{service.title}}</p>
+              <img [src]="service.img" alt="service">
+            </div> 
+            
+          </div>
+        </div>
       </div>
 
       <div class="service-last-element col-6">
@@ -124,7 +158,8 @@
     <div>
       <img class="w-100" [class.d-none]="activePreorderSize != p.size" *ngFor="let p of preorders" [src]="p.src"
         alt="preorder">
-      <p class="md-text mt-2"><b>Облачное хранилище, {{activePreorderSize}}м²</b></p>
+      <p class="md-text mt-2"><b>Xранилище, {{activePreorderSize}}м²</b></p>
+      <p class="sm-text"> {{ activeDescription }}</p>
     </div>
   </div>
 
@@ -137,7 +172,7 @@
     <div class="size-buttons d-flex">
       <button class="es-btn mr-2 w-25"
         [ngClass]="{'es-second-btn-outline': size.size != activePreorderSize, 'es-second-btn': size.size == activePreorderSize}"
-        *ngFor="let size of preorders" (click)="activePreorderSize = size.size">{{size.size}}м²</button>
+        *ngFor="let size of preorders" (click)="activePreorderSize = size.size; activeSquarePrice = size.squarePrice; activeDescription = size.description">{{size.size}}м²</button>
     </div>
 
     <div class="month-buttons mt-4">
@@ -152,12 +187,12 @@
       <div class="preorder-calculator-head d-flex p-3">
         <p class="w-50"><b> Стоимость аренды в месяц</b></p>
         <p class="w-25">Площадь: <b>{{activePreorderSize}}м²</b></p>
-        <p class="w-25">Цена за м²: <b>{{1600 | kztCurrency:'int'}}</b></p>
+        <p class="w-25">Цена за м²: <b>{{activeSquarePrice | kztCurrency:'int'}}</b></p>
       </div>
       <div class="preorder-calculator-footer d-flex p-2 px-4">
         <div>
-          <p class="md-text"><b>{{(activePreorderSize * 1600) | kztCurrency:'int'}}/мес</b></p>
-          <p class="sm-text">Итог: <b>{{(activePreorderSize * activeMonth * 1600) | kztCurrency:'int'}}</b></p>
+          <p class="md-text"><b>{{(activePreorderSize * activeSquarePrice)|kztCurrency:'int'}}/мес</b></p>
+          <p class="sm-text">Итог: <b>{{(activePreorderSize * activeMonth * activeSquarePrice) | kztCurrency:'int'}}</b></p>
         </div>
         <button class="es-btn es-first-btn m-2">Заказать</button>
       </div>
@@ -165,7 +200,7 @@
   </div>
 </div>
 
-<div class="care">
+<div class="care" id="care">
   <div class="services-mobile p-4"></div>
   <p class="text-center first-color lg-text"> <b>Заботимся о Вашем комфорте </b></p>
   <p class="text-center first-color">Команда Extra Space предлагает Вам лучшее соотношение цена/качество <br /> в
@@ -195,7 +230,7 @@
   </div>
 </div>
 
-<div class="about mt-5">
+<div class="about mt-5" id="about">
   <div class="about-mobile p-4"></div>
   <div class="about-inner secondary-background-color d-flex align-items-center ">
     <div class="left-about text-right mr-5">
@@ -215,7 +250,7 @@
   </div>
 </div>
 
-<div class="our-clients mt-5">
+<div class="our-clients mt-5" id="our-clients">
   <div class="p-4">
     <p class="lg-text first-color text-center"><b>Наши клиенты</b></p>
     <p class="first-color text-center">Нам доверяют представители различных сфер бизнеса и мы очень ценим их доверие</p>
@@ -228,4 +263,108 @@
 </div>
 
 
-<iframe style="visibility: hidden;" src="https://yandex.ru/map-widget/v1/?um=constructor%3A941acd588a8f41d333e3ae6e97cf64fa752e3a5c5f246bb49e78782d04a74c61&amp;source=constructor" width="500" height="400" frameborder="0"></iframe>
+<div class="addresses" id="addresses">
+  <div class="addresses-mobile p-4"></div>
+  <div class="address d-flex">
+    <div class="address-left first-background-color p-4">
+      <p class="md-text text-white h-50">Алматы, ул.Абиша <br> Кекилбайулы 270, блок 4, <br> ЖК “Mega Towers”</p>
+      <div class="row mt-4" >
+        <div class="col-6 mb-3">
+          <p class="first-color-light">РЕЖИМ РАБОТЫ</p>
+          <p class="dark-white-color">Склад: круглосуточно</p>
+          <p class="dark-white-color">Офис: пн-пт с 09:00 до 20:00</p>
+        </div>
+
+        <div class="col-6 mb-3">
+          <p class="first-color-light">ТЕЛЕФОН</p>
+          <p class="dark-white-color">+7 (775) 728 61 48</p>
+          <p class="dark-white-color">+7 (747) 856 56 62</p>
+        </div>
+
+        <div class="col-6 my-3">
+          <p class="first-color-light">E-MAIL</p>
+          <p class="dark-white-color">example@info.kz</p>
+        </div>
+
+        <div class="col-6 my-3">
+          <p class="first-color-light">WHATSAPP</p>
+          <p class="dark-white-color">+7 (777) 295 00 55</p>
+        </div>
+      </div>
+    </div>
+    <div class="address-right">
+      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A941acd588a8f41d333e3ae6e97cf64fa752e3a5c5f246bb49e78782d04a74c61&amp;source=constructor" width="500" height="400" frameborder="0"></iframe>
+    </div>
+  </div>
+
+  <div class="address d-flex mt-2">
+    <div class="address-left address-light p-4">
+      <p class="md-text first-color h-50">Алматы, Касымова 32, <br> ЖК “Есентай”</p>
+      <div class="row mt-4" >
+        <div class="col-6 mb-3">
+          <p class="first-color-light">РЕЖИМ РАБОТЫ</p>
+          <p class="first-color">Склад: круглосуточно</p>
+          <p class="first-color">Офис: пн-пт с 09:00 до 20:00</p>
+        </div>
+
+        <div class="col-6 mb-3">
+          <p class="first-color-light">ТЕЛЕФОН</p>
+          <p class="first-color">+7 (775) 728 61 48</p>
+          <p class="first-color">+7 (747) 856 56 62 </p>
+        </div>
+
+        <div class="col-6 my-3">
+          <p class="first-color-light">E-MAIL</p>
+          <p class="first-color">example@info.kz</p>
+        </div>
+
+        <div class="col-6 my-3">
+          <p class="first-color-light">WHATSAPP</p>
+          <p class="first-color">+7 (777) 295 00 55</p>
+        </div>
+      </div>
+    </div>
+    <div class="address-right">
+      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A5e2e2165f3823a1220eb9e5da065970bed5849e68dcd23af0ab717d6c90a4936&amp;source=constructor"  width="500" height="400" frameborder="0"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="footer mt-5 d-flex">
+  <div class="footer-logo m-5">
+    <img src="../../../assets/images/about/logo-big.png" alt="about-main" style="width: 55%;">
+  </div>
+
+  <div class="anchors d-flex">
+    <div class="col-6 mr-5">
+      <a class="first-color animated-footer-link p-2 d-block" (click)="smoothScroll('#why-extraspace')">Преимущества</a>
+      <a class="first-color animated-footer-link p-2 d-block" (click)="smoothScroll('#services')">Услуги</a>
+      <a class="first-color animated-footer-link p-2 d-block" (click)="smoothScroll('#preorders')">Боксы</a>
+      <a class="first-color animated-footer-link p-2 d-block" (click)="smoothScroll('#care')">Галерея</a>
+    </div>
+    <div class="col-6 mr-5">
+      <a class="first-color animated-footer-link p-2 d-block" (click)="smoothScroll('#about')">О нас</a>
+      <a class="first-color animated-footer-link p-2 d-block" (click)="smoothScroll('#our-clients')">Клиенты</a>
+      <a class="first-color animated-footer-link p-2 d-block" (click)="smoothScroll('#addresses')">Адреса</a>
+    </div>
+  </div>
+
+  <div class="footer-contacts pl-5">
+    <div class="footer-phone d-flex">
+      <div class="footer-circle">
+        <i class="fa fa-phone text-white mt-2"></i>
+      </div>
+      <p class="pl-2 first-color"><b>+7(775) 728 61 48</b></p>
+      <p></p>
+    </div>
+  
+    <div class="footer-instagram d-flex mt-3">
+      <div class="footer-circle">
+        <i class="fa fa-instagram text-white mt-2"></i>
+      </div>
+      <a href="https://www.instagram.com/extraspace.kz/" target="_blank" class="pl-2 first-color animated-footer-link"><b>@extraspace.kz</b></a>
+    </div>
+  </div>
+
+
+</div>

@@ -17,18 +17,21 @@ export class HomeComponent implements OnInit {
   ]
 
   services: any[] = [
-    {  title:'Наши боксы', img: '../../../assets/images/services/door.png', additionalInfoLink: '#preorders'},
-    {  title:'Облачное хранилище', img: '../../../assets/images/services/boxes.png', additionalInfoLink: null},
-    {  title:'Безопасность', img: '../../../assets/images/services/lock.png', additionalInfoLink: null},    
+    {  title:'Наши боксы', img: '../../../assets/images/services/door.png', slideInfo: ['Сухие отопляемые хранилища','Проветриваемые вентялицией','Удобное центральное расположение складов']},
+    {  title:'Облачное хранилище', img: '../../../assets/images/services/boxes.png', slideInfo: ['Цена только за тот объём, который храните', 'Дешевле в разы обычных хранилищ', 'Неограниченное место']},
+    {  title:'Безопасность', img: '../../../assets/images/services/lock.png', slideInfo: ['Видеонаблюдение', 'Охрана 24/7', 'Биометрические замки']},    
   ]
 
   preorders: any[] = [
-    { src: '../../../assets/images/orders-description/1_order.png', size: 1 },
-    { src: '../../../assets/images/orders-description/2_order.png', size: 2 },
-    { src: '../../../assets/images/orders-description/3_order.png', size: 8 },
-    { src: '../../../assets/images/orders-description/4_order.png', size: 15 }
+    { src: '../../../assets/images/orders-description/1_order.png', size: 2, squarePrice: 8000, description: 'Самый маленький по площади склад. Идеально подходит для хранения личных вещей (сумки, коробки, чемоданы, резина)' },
+    { src: '../../../assets/images/orders-description/2_order.png', size: 4, squarePrice: 7500, description: 'Самый маленький по площади склад. Идия личных вещей (сумки, коробки, чемоданы, резина)'},
+    { src: '../../../assets/images/orders-description/3_order.png', size: 8, squarePrice: 7000, description: 'Самый маленькийо подходит для хранения личных вещей (сумки, коробки, чемоданы, резина)' },
+    { src: '../../../assets/images/orders-description/4_order.png', size: 15,squarePrice: 6500, description: 'Самый маленький по площади склад. Идеально пощей (сумки, коробки, чемоданы, резина)' }
   ]
-  activePreorderSize: number = 1;
+  
+  activeDescription: string = 'Самый маленький по площади склад. Идеально подходит для хранения личных вещей (сумки, коробки, чемоданы, резина)';
+  activeSquarePrice: number = 8000;
+  activePreorderSize: number = 2;
 
   careImages: any[] = [
     [

@@ -1,8 +1,10 @@
 :root{
     --first-color: #253350;
-    --first-color-light: #444f64;
+    --first-color-light: #9299a7;
     --second-color: #E7CF9F;
     --second-color-light: #f3e2bf;
+
+    --dark-white: #e9ecf5;
 }
 
 @font-face {
@@ -37,7 +39,11 @@ p{
 }
 
 .first-color {
-    color: var(--first-color);
+    color: var(--first-color)!important;
+}
+
+.first-color-light {
+    color: var(--first-color-light);
 }
 
 .secondary-background-color {
@@ -50,6 +56,10 @@ p{
 
 .second-color {
     color: var(--second-color);
+}
+
+.dark-white-color{
+    color: var(--dark-white);
 }
 
 .md-icon{
@@ -76,4 +86,30 @@ p{
 
 .animated-link:hover{
     background-color: rgba(0, 0, 0, 0.1);
+}
+
+.footer-contacts > p {
+    font-size: 21px;
+    /* color:var(--first-color); */
+}
+
+.animated-footer-link{
+    cursor: pointer;
+}
+
+.animated-footer-link:hover{
+    color:var(--second-color)!important;
+    text-decoration: none;
+}
+
+.footer-circle {
+    background-color: var(--first-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px; 
+    text-align: center;
+}
+
+.footer-circle > i {
+    font-size: 30px;
 }
