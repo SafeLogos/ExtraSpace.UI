@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+declare var $: any;
 
 @Component({
   selector: 'app-home',
@@ -23,10 +24,10 @@ export class HomeComponent implements OnInit {
   ]
 
   preorders: any[] = [
-    { src: '../../../assets/images/orders-description/1_order.png', size: 2, squarePrice: 8000, description: 'Самый маленький по площади склад. Идеально подходит для хранения личных вещей (сумки, коробки, чемоданы, резина)' },
-    { src: '../../../assets/images/orders-description/2_order.png', size: 4, squarePrice: 7500, description: 'Самый маленький по площади склад. Идия личных вещей (сумки, коробки, чемоданы, резина)'},
-    { src: '../../../assets/images/orders-description/3_order.png', size: 8, squarePrice: 7000, description: 'Самый маленькийо подходит для хранения личных вещей (сумки, коробки, чемоданы, резина)' },
-    { src: '../../../assets/images/orders-description/4_order.png', size: 15,squarePrice: 6500, description: 'Самый маленький по площади склад. Идеально пощей (сумки, коробки, чемоданы, резина)' }
+    { src: '../../../assets/images/orders-description/1_order.png', size: 2, squarePrice: 8000, description: 'Самый маленький по площади хранилище. Идеально подходит для хранения личных вещей (сумки, коробки, чемоданы, резина).' },
+    { src: '../../../assets/images/orders-description/2_order.png', size: 4, squarePrice: 7500, description: 'Хранилище среднего размера. Предназначен для небольшого качества среднегабаритной мебели (письменный стол, пианино и огромное количество коробок сверху). '},
+    { src: '../../../assets/images/orders-description/3_order.png', size: 8, squarePrice: 7000, description: 'Внушительное хранилище. Спокойно вместит в себя всю мебель одной большой зальной комнаты.' },
+    { src: '../../../assets/images/orders-description/4_order.png', size: 15,squarePrice: 6500, description: 'Ангар. В такое хранилище можно завести всю мебель с 4-х комнатной квартиры и оставить машину.' }
   ]
   
   activeDescription: string = 'Самый маленький по площади склад. Идеально подходит для хранения личных вещей (сумки, коробки, чемоданы, резина)';
@@ -82,6 +83,14 @@ export class HomeComponent implements OnInit {
   });
   }
 
+  toggleModal(id: string){
+    $(id).toggleClass('es-modal-show');
+  }
+
+  changeModal(id: string) {
+    $('#orderModal').toggleClass('es-modal-show');
+    $(id).toggleClass('es-modal-show');
+  }
 
   
 }

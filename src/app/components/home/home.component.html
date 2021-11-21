@@ -1,25 +1,3 @@
-<div class="modal fade" id="call-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <p class="lg-text first-color"><b>Заказать звонок</b></p>
-
-      <p>Ваше имя</p>
-      <input class ="w-50" type="text">
-
-      <p>Номер телефона</p>
-      <input class ="w-50" type="text">
-
-      <p>Комментарии</p>
-
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <div class="welcome d-flex">
   <div class="left-welcome w-50">
     <div class="left-welcome-navbar">
@@ -28,7 +6,7 @@
         <div style="width: 60%;" class="d-flex">
           <a class="first-color unstyled-link animated-link p-2 d-block" (click)="smoothScroll('#preorders')">Боксы и цены</a>
           <a class="first-color unstyled-link animated-link p-2 d-block" (click)="smoothScroll('#services')">Услуги</a>
-          <a class="first-color unstyled-link animated-link p-2 d-block" (click)="smoothScroll('#contacts')">Контакты</a>
+          <a class="first-color unstyled-link animated-link p-2 d-block" (click)="smoothScroll('#addresses')">Контакты</a>
         </div>
       </div>
     </div>
@@ -38,7 +16,7 @@
       <h5 style="font-weight: 350" class="first-color cpt-3">Храните свои вещи в лёгкой<br />
         доступности в центре города
       </h5>
-      <button type="button" class="btn secondary-background-color btn-lg mt-3"> Посмотреть боксы </button>
+      <button type="button" class="btn secondary-background-color btn-lg mt-3 first-color" (click)="smoothScroll('#preorders')"> Посмотреть боксы </button>
     </div>
 
     <div class="left-welcome-icons d-flex ml-4">
@@ -62,9 +40,9 @@
       <div class="d-flex align-items-center justify-content-end pr-4">
         <div>
           <p class="text-white mb-0" style="font-size:23px;font-weight: 300;">+7 (775) 728 61 48</p>
-          <p class="text-white text-right mb-0" style="margin-top:-7px; font-size:12px;">Заказать звонок</p>
+          <p class="text-white text-right mb-0 order-call" (click)="toggleModal('#orderModal')">Заказать звонок</p>
         </div>
-        <button type="button" class="es-btn es-second-btn-outline es-btn-color-white ml-4 px-5 py-2" data-toggle="modal" data-target="#call-modal"> Сдать вещи</button>
+        <button type="button" class="es-btn es-second-btn-outline es-btn-color-white ml-4 px-5 py-2" (click)="toggleModal('#orderModal')"> Сдать вещи</button>
       </div>
     </div>
 
@@ -100,7 +78,7 @@
       Наша компания предоставляет высокое качество сервиса. Сотрудники ExtraSpace позаботятся о том, чтобы Ваши вещи
       хранились в надлежих условиях.
     </p>
-    <button type="button" class="btn first-background-color px-5 py-1.5 mt-2">Арендовать бокс</button>
+    <button type="button" class="btn first-background-color px-5 py-1.5 mt-2" (click)="toggleModal('#orderModal')">Арендовать бокс</button>
   </div>
 </div>
 
@@ -127,6 +105,7 @@
 
             <div class="service-element-content p-4 w-50">
               <p class="service-element-title mb-0">{{service.title}}</p>
+              <p class="sm-text color-white"> Узнать подробнее &#8594;</p>
               <img [src]="service.img" alt="service">
             </div> 
             
@@ -144,7 +123,7 @@
           </ul>
           <div class="h-100"></div>
           <div class="m-auto text-center">
-            <button class="btn text-white first-background-color py-2 px-5">Оставить заявку</button>
+            <button class="btn text-white first-background-color py-2 px-5" (click)="toggleModal('#orderModal')">Оставить заявку</button>
           </div>
         </div>
       </div>
@@ -166,7 +145,7 @@
   <div class="preorder-selection m-auto">
     <div class="d-flex">
       <p class="lg-text first-color" style="line-height: 0.9;"><b>Боксы для хранения вещей</b></p>
-      <p class="first-color cursor-pointer p-2 w-25 text-right">Таблица цен</p>
+      <p class="first-color cursor-pointer p-2 w-25 text-right" (click)="toggleModal('#priceModal')">Таблица цен</p>
     </div>
     <p class="first-color mb-1">Выберите размер бокса</p>
     <div class="size-buttons d-flex">
@@ -194,7 +173,7 @@
           <p class="md-text"><b>{{(activePreorderSize * activeSquarePrice)|kztCurrency:'int'}}/мес</b></p>
           <p class="sm-text">Итог: <b>{{(activePreorderSize * activeMonth * activeSquarePrice) | kztCurrency:'int'}}</b></p>
         </div>
-        <button class="es-btn es-first-btn m-2">Заказать</button>
+        <button class="es-btn es-first-btn m-2" (click)="toggleModal('#orderModal')">Заказать</button>
       </div>
     </div>
   </div>
@@ -212,7 +191,7 @@
         <div class="d-flex align-items-center">
           <div *ngFor="let img of card" class="w-25 p-2">
             <div class="d-flex justify-content-center w-100" style="height: 290px; overflow: hidden;text-align: center;">
-              <img class="d-block h-100" [src]="img.src" alt="slide">
+              <img class="h-100" [src]="img.src" alt="slide">
             </div>
           </div>
         </div>
@@ -337,15 +316,15 @@
 
   <div class="anchors d-flex">
     <div class="col-6 mr-5">
-      <a class="first-color animated-footer-link p-2 d-block" (click)="smoothScroll('#why-extraspace')">Преимущества</a>
-      <a class="first-color animated-footer-link p-2 d-block" (click)="smoothScroll('#services')">Услуги</a>
-      <a class="first-color animated-footer-link p-2 d-block" (click)="smoothScroll('#preorders')">Боксы</a>
-      <a class="first-color animated-footer-link p-2 d-block" (click)="smoothScroll('#care')">Галерея</a>
+      <p class="m-2 linked-text" (click)="smoothScroll('#why-extraspace')">Преимущества</p>
+      <p class="m-2 linked-text" (click)="smoothScroll('#services')">Услуги</p>
+      <p class="m-2 linked-text" (click)="smoothScroll('#preorders')">Боксы</p>
+      <p class="m-2 linked-text" (click)="smoothScroll('#care')">Галерея</p>
     </div>
     <div class="col-6 mr-5">
-      <a class="first-color animated-footer-link p-2 d-block" (click)="smoothScroll('#about')">О нас</a>
-      <a class="first-color animated-footer-link p-2 d-block" (click)="smoothScroll('#our-clients')">Клиенты</a>
-      <a class="first-color animated-footer-link p-2 d-block" (click)="smoothScroll('#addresses')">Адреса</a>
+      <p class="m-2 linked-text" (click)="smoothScroll('#about')">О нас</p>
+      <p class="m-2 linked-text" (click)="smoothScroll('#our-clients')">Клиенты</p>
+      <p class="m-2 linked-text" (click)="smoothScroll('#addresses')">Адреса</p>
     </div>
   </div>
 
@@ -354,17 +333,208 @@
       <div class="footer-circle">
         <i class="fa fa-phone text-white mt-2"></i>
       </div>
-      <p class="pl-2 first-color"><b>+7(775) 728 61 48</b></p>
-      <p></p>
+      <div class="ml-2">
+        <p class="first-color"><b>+7(775) 728 61 48</b></p>
+        <p class="sm-text linked-text" (click)="toggleModal('#orderModal')">Заказать звонок</p>
+      </div>
     </div>
   
     <div class="footer-instagram d-flex mt-3">
       <div class="footer-circle">
         <i class="fa fa-instagram text-white mt-2"></i>
       </div>
-      <a href="https://www.instagram.com/extraspace.kz/" target="_blank" class="pl-2 first-color animated-footer-link"><b>@extraspace.kz</b></a>
+      <div class="ml-2">
+        <a href="https://www.instagram.com/extraspace.kz/" target="_blank"><b>@extraspace.kz</b></a>
+        <p class="sm-text">Мы в Instagram</p>
+      </div>
     </div>
   </div>
 
 
+</div>
+
+
+<div class="es-modal" id="orderModal">
+  <div class="es-modal-dialog es-modal-dialog-right">
+    <div class="es-modal-title">
+      <span>Заказать звонок</span>
+      <button type="button" class="close" aria-label="Close" (click)="toggleModal('#orderModal')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="es-modal-content">
+      <div>
+        <span class="sm-text">Ваше имя</span>
+        <input type="text" class="form-control mt-1" placeholder="Введите имя">
+      </div>
+
+      <div class="mt-2">
+        <span class="sm-text">Номер телефона</span>
+        <input type="text" class="form-control mt-1" prefix="+7 " mask="(000) 000-00-00" showMaskTyped="true">
+      </div>
+
+      <div class="mt-2">
+        <span class="sm-text">Комментарий (необязательно)</span>
+        <textarea class="form-control" placeholder="Введите ваш комментарий"></textarea>
+      </div>
+
+      <button class="es-btn es-first-btn w-100 mx-auto d-block mt-3" (click)="changeModal('#thankYouModal')">Заказать звонок</button>
+    </div>
+  </div>
+</div>
+
+<div class="es-modal" id="thankYouModal">
+  <div class="es-modal-dialog es-modal-dialog-right">
+    <div class="es-modal-title">
+      <span>Спасибо за заявку!</span>
+      <button type="button" class="close" aria-label="Close" (click)="toggleModal('#thankYouModal')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="es-modal-content">
+      <div>
+        <span class="sm-text">Ваша заявка находится в обработке. Мы свяжемся с Вами в ближайшее время.</span>
+      </div>
+
+      <button class="es-btn es-first-btn w-100 mx-auto d-block mt-3" (click)="toggleModal('#thankYouModal')">Главная</button>
+    </div>
+  </div>
+</div>
+
+<div class="es-modal" id="priceModal">
+  <div class="es-price-modal-dialog">
+    <div class="es-modal-title">
+      <span>Подробный прайс</span>
+      <button type="button" class="close" aria-label="Close" (click)="toggleModal('#priceModal')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="es-modal-content">
+      <div class="prices-table">
+        <table id="prices">
+          <tr>
+            <th>Аренда склада</th>
+            <th>Площадь(м<sup>2</sup>)</th>
+            <th>Цена за м<sup>2</sup></th>
+            <th>1 мес.</th>
+            <th>3 мес.</th>
+            <th>6 мес.</th>
+            <th>12 мес.</th>
+          </tr>
+          <tr>
+            <td>XXXS</td>
+            <td>2,5м<sup>2</sup></td>
+            <td>8000</td>
+            <td>20 000</td>
+            <td>60 000</td>
+            <td>120 000</td>
+            <td>240 000</td>
+          </tr>
+          <tr>
+            <td>XXS</td>
+            <td>3,5м<sup>2</sup></td>
+            <td>8000</td>
+            <td>28 000</td>
+            <td>84 000</td>
+            <td>168 000</td>
+            <td>336 000</td>
+          </tr>
+          <tr>
+            <td>XS</td>
+            <td>4,5м<sup>2</sup></td>
+            <td>8000</td>
+            <td>36 000</td>
+            <td>108 000</td>
+            <td>216 000</td>
+            <td>432 000</td>
+          </tr>
+          <tr>
+            <td>S</td>
+            <td>6м<sup>2</sup></td>
+            <td>7500</td>
+            <td>45 000</td>
+            <td>135 000</td>
+            <td>270 000</td>
+            <td>540 000</td>
+          </tr>
+          <tr>
+            <td>M</td>
+            <td>8м<sup>2</sup></td>
+            <td>7000</td>
+            <td>56 000</td>
+            <td>168 000</td>
+            <td>336 000</td>
+            <td>672 000</td>
+          </tr>
+          <tr>
+            <td>M+</td>
+            <td>10м<sup>2</sup></td>
+            <td>6500</td>
+            <td>65 000</td>
+            <td>195 000</td>
+            <td>390 000</td>
+            <td>780 000</td>
+          </tr>
+          <tr>
+            <td>L</td>
+            <td>12м<sup>2</sup></td>
+            <td>6500</td>
+            <td>78 000</td>
+            <td>234 000</td>
+            <td>468 000</td>
+            <td>936 000</td>
+          </tr>
+          <tr>
+            <td>XL</td>
+            <td>15м<sup>2</sup></td>
+            <td>6500</td>
+            <td>97 500</td>
+            <td>292 500</td>
+            <td>585 000</td>
+            <td>1 170 000</td>
+          </tr>
+          <tr>
+            <td>XXL</td>
+            <td>18м<sup>2</sup></td>
+            <td>6500</td>
+            <td>117 000</td>
+            <td>351 000</td>
+            <td>702 000</td>
+            <td>1 404 000</td>
+          </tr>
+          <tr>
+            <td>XXXL</td>
+            <td>22м<sup>2</sup></td>
+            <td>6500</td>
+            <td>143 000</td>
+            <td>429 000</td>
+            <td>858 000</td>
+            <td>1 716 000</td>
+          </tr>
+          
+        </table>
+      </div>
+
+      <div class="abbreviated-prices d-flex">
+        <div class="cloud-prices w-50">
+          <p class="sm-text first-color mt-5">Прайс облачных хранилищ:</p>
+          <p class="sm-text">1-3м<sup>3</sup> - 6000тг/м<sup>3</sup>; 4м<sup>3</sup> - 5500тг/м<sup>3</sup></p>
+          <p class="sm-text">5-7м<sup>3</sup> - 5000тг/м<sup>3</sup>; 8м3 - 4500тг/м<sup>3</sup></p>
+          <p class="sm-text">9-22м<sup>3</sup> - 4000тг/м<sup>3</sup></p>
+        </div>
+
+        <div class="legal-person-prices w-50">
+          <p class="sm-text first-color mt-5">Прайс для юр лиц:</p>
+          <p class="sm-text">1-5м<sup>3</sup> - 9000тг/м<sup>3</sup>; 6м<sup>3</sup> - 8500тг/м<sup>3</sup></p>
+          <p class="sm-text">7-10м<sup>3</sup> - 8000тг/м<sup>3</sup>; 11м3 - 7500тг/м<sup>3</sup></p>
+          <p class="sm-text">15м<sup>3</sup>+ - 6500тг/м<sup>3</sup></p>
+        </div>
+      </div>
+
+        
+    </div>
+  </div>
 </div>

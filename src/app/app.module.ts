@@ -6,6 +6,10 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { KztCurrencyPipe } from './pipes/kzt-currency.pipe';
 import { SafePipe } from './pipes/safe.pipe';
+import { IConfig, NgxMaskModule } from 'ngx-mask';
+import { FormsModule } from '@angular/forms';
+
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
 @NgModule({
   declarations: [
@@ -16,7 +20,9 @@ import { SafePipe } from './pipes/safe.pipe';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    NgxMaskModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

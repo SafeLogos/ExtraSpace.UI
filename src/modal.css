@@ -1,0 +1,82 @@
+.es-modal{
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(37, 51, 80, 0.2);
+    z-index: 1000;
+    display: none;
+}
+
+.es-modal-show{
+    display: block;
+}
+
+.es-modal-dialog{
+   margin: auto 1.5rem; 
+   background-color: white;
+   width: 33.33%;
+   padding: 3rem;
+   min-height: 100%;
+}
+
+.es-modal-dialog-right{
+    margin: 0;
+    margin-left: auto;
+}
+
+.es-modal-title{
+    display: flex;
+    align-items: center;
+}
+
+.es-modal-title > span{
+    color: var(--first-color);
+    font-size: var(--md-text);
+    font-weight: 700;
+    width: 100%;
+}
+
+.es-modal-title > button.close > span{
+    font-size: var(--md-text);
+}
+
+.es-modal-content{
+    margin-top: 1.5rem;
+    color: var(--first-color);
+}
+
+.es-price-modal-dialog {
+   margin: auto 1.5rem; 
+   position: absolute;
+   top: 8%;
+   left: 12%;
+   background-color: white;
+   width: 75%;
+   padding: 3rem;
+   min-height: 75%;
+}
+
+#prices {
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+#prices td, #prices th {
+    color: var(--first-color);
+    font-weight: 500;
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+  
+#prices tr:nth-child(even){background-color: #f2f2f2;}
+  
+#prices tr:hover {background-color: #ddd;}
+  
+#prices th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: var(--second-color);
+}

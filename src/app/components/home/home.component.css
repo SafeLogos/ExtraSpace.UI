@@ -181,11 +181,12 @@ img.boxes-image {
     background-color: #f5e9d1;
 }
 
-.modal {
-    
+.order-call {
+    margin-top:-7px; 
+    font-size:12px;
 }
 
-.modal-content {
-    width: 100%;
-    
+.order-call:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
