@@ -7,6 +7,7 @@
     background-color: rgba(37, 51, 80, 0.2);
     z-index: 1000;
     display: none;
+    overflow: auto;
 }
 
 .es-modal-show{
@@ -48,10 +49,7 @@
 }
 
 .es-price-modal-dialog {
-   margin: auto 1.5rem; 
-   position: absolute;
-   top: 8%;
-   left: 12%;
+   margin: 2rem auto; 
    background-color: white;
    width: 75%;
    padding: 3rem;

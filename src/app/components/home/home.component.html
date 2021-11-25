@@ -40,9 +40,9 @@
       <div class="d-flex align-items-center justify-content-end pr-4">
         <div>
           <p class="text-white mb-0" style="font-size:23px;font-weight: 300;">+7 (775) 728 61 48</p>
-          <p class="text-white text-right mb-0 order-call" (click)="toggleModal('#orderModal')">Заказать звонок</p>
+          <p class="text-white text-right mb-0 order-call" (click)="showModal('#orderModal')">Заказать звонок</p>
         </div>
-        <button type="button" class="es-btn es-second-btn-outline es-btn-color-white ml-4 px-5 py-2" (click)="toggleModal('#orderModal')"> Сдать вещи</button>
+        <button type="button" class="es-btn es-second-btn-outline es-btn-color-white ml-4 px-5 py-2" (click)="showModal('#orderModal')"> Сдать вещи</button>
       </div>
     </div>
 
@@ -60,7 +60,7 @@
 <div class="why-extraspace d-flex mt-5" id="why-extraspace">
   <div class="left-why-extraspace w-50">
     <div class="row">
-      <div class="why-image-element col-6" *ngFor="let wi of whyImages">
+      <div class="why-image-element col-6" *ngFor="let wi of data.whyImages">
         <div class="d-flex align-items-center p-3">
           <img [src]="wi.imgPath" alt="img">
           <p class="first-color mb-0 ml-2">{{wi.title}}</p>
@@ -72,13 +72,13 @@
 
   <div class="right-why-extraspace w-50 pt-4">
     <p style="color: #253350; font-weight: 700; font-size:39px; line-height: 0.9em">
-      Почему клиенты <br /> выбирают Extra Space
+      Почему клиенты <br /> выбирают Extra Space 
     </p>
     <p style="font-weight: 400; font-size:17px" class="pt-3 first-color">
       Наша компания предоставляет высокое качество сервиса. Сотрудники ExtraSpace позаботятся о том, чтобы Ваши вещи
       хранились в надлежих условиях.
     </p>
-    <button type="button" class="btn first-background-color px-5 py-1.5 mt-2" (click)="toggleModal('#orderModal')">Арендовать бокс</button>
+    <button type="button" class="btn first-background-color px-5 py-1.5 mt-2" (click)="showModal('#orderModal')">Арендовать бокс</button>
   </div>
 </div>
 
@@ -90,7 +90,7 @@
 
   <div class="containe mt-2">
     <div class="service-elements row m-auto">
-      <div class="service-element col-6 mb-4"  *ngFor="let service of services;">
+      <div class="service-element col-6 mb-4"  *ngFor="let service of data.services;">
         <div class="service-element-view">
           <div class="service-slide-container">
 
@@ -123,7 +123,7 @@
           </ul>
           <div class="h-100"></div>
           <div class="m-auto text-center">
-            <button class="btn text-white first-background-color py-2 px-5" (click)="toggleModal('#orderModal')">Оставить заявку</button>
+            <button class="btn text-white first-background-color py-2 px-5" (click)="showModal('#orderModal')">Оставить заявку</button>
           </div>
         </div>
       </div>
@@ -135,45 +135,45 @@
 <div class="preorders d-flex mt-5" id="preorders">
   <div class="preorder-view d-flex align-items-center justify-content-center px-4 m-auto">
     <div>
-      <img class="w-100" [class.d-none]="activePreorderSize != p.size" *ngFor="let p of preorders" [src]="p.src"
+      <img class="w-100" [class.d-none]="data.activePreorderSize != p.size" *ngFor="let p of data.preorders" [src]="p.src"
         alt="preorder">
-      <p class="md-text mt-2"><b>Xранилище, {{activePreorderSize}}м²</b></p>
-      <p class="sm-text"> {{ activeDescription }}</p>
+      <p class="md-text mt-2"><b>Xранилище, {{data.activePreorderSize}}м²</b></p>
+      <p class="sm-text"> {{ data.activeDescription }}</p>
     </div>
   </div>
 
   <div class="preorder-selection m-auto">
     <div class="d-flex">
       <p class="lg-text first-color" style="line-height: 0.9;"><b>Боксы для хранения вещей</b></p>
-      <p class="first-color cursor-pointer p-2 w-25 text-right" (click)="toggleModal('#priceModal')">Таблица цен</p>
+      <p class="first-color cursor-pointer p-2 w-25 text-right" (click)="showModal('#priceModal')">Таблица цен</p>
     </div>
     <p class="first-color mb-1">Выберите размер бокса</p>
     <div class="size-buttons d-flex">
       <button class="es-btn mr-2 w-25"
-        [ngClass]="{'es-second-btn-outline': size.size != activePreorderSize, 'es-second-btn': size.size == activePreorderSize}"
-        *ngFor="let size of preorders" (click)="activePreorderSize = size.size; activeSquarePrice = size.squarePrice; activeDescription = size.description">{{size.size}}м²</button>
+        [ngClass]="{'es-second-btn-outline': size.size != data.activePreorderSize, 'es-second-btn': size.size == data.activePreorderSize}"
+        *ngFor="let size of data.preorders" (click)="data.activePreorderSize = size.size; data.activeSquarePrice = size.squarePrice; data.activeDescription = size.description">{{size.size}}м²</button>
     </div>
 
     <div class="month-buttons mt-4">
-      <div class="month-row d-flex mt-1" *ngFor="let row of monthRows">
+      <div class="month-row d-flex mt-1" *ngFor="let row of data.monthRows">
         <button class="es-btn mr-2 w-25"
-          [ngClass]="{'es-first-btn-outline': activeMonth != month, 'es-first-btn': activeMonth == month}"
-          (click)="activeMonth = month" *ngFor="let month of row.months">{{month}}мес.</button>
+          [ngClass]="{'es-first-btn-outline': data.activeMonth != month, 'es-first-btn': data.activeMonth == month}"
+          (click)="data.activeMonth = month" *ngFor="let month of row.months">{{month}}мес.</button>
       </div>
     </div>
 
     <div class="preorder-calculator first-color secondary-light-background-color rounded mt-5 mr-2">
       <div class="preorder-calculator-head d-flex p-3">
         <p class="w-50"><b> Стоимость в месяц</b></p>
-        <p class="w-50">Площадь: <b>{{activePreorderSize}}м²</b></p>
-        <p class="w-50">Цена за м²: <b>{{activeSquarePrice | kztCurrency:'int'}}</b></p>
+        <p class="w-50">Площадь: <b>{{data.activePreorderSize}}м²</b></p>
+        <p class="w-50">Цена за м²: <b>{{data.activeSquarePrice | kztCurrency:'int'}}</b></p>
       </div>
       <div class="preorder-calculator-footer d-flex p-2 px-4">
         <div>
-          <p class="md-text"><b>{{(activePreorderSize * activeSquarePrice)|kztCurrency:'int'}}/мес</b></p>
-          <p class="sm-text">Итог: <b>{{(activePreorderSize * activeMonth * activeSquarePrice) | kztCurrency:'int'}}</b></p>
+          <p class="md-text"><b>{{(data.activePreorderSize * data.activeSquarePrice)|kztCurrency:'int'}}/мес</b></p>
+          <p class="sm-text">Итог: <b>{{(data.activePreorderSize * data.activeMonth * data.activeSquarePrice) | kztCurrency:'int'}}</b></p>
         </div>
-        <button class="es-btn es-first-btn m-2" (click)="toggleModal('#orderModal')">Заказать</button>
+        <button class="es-btn es-first-btn m-2" (click)="showModal('#orderModal')">Заказать</button>
       </div>
     </div>
   </div>
@@ -187,7 +187,7 @@
 
   <div id="carouselExampleControls" class="carousel slide mt-3" data-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item" [class.active]="i == 0" *ngFor="let card of careImages; let i = index;">
+      <div class="carousel-item" [class.active]="i == 0" *ngFor="let card of data.careImages; let i = index;">
         <div class="d-flex align-items-center">
           <div *ngFor="let img of card" class="w-25 p-2">
             <div class="d-flex justify-content-center w-100" style="height: 290px; overflow: hidden;text-align: center;">
@@ -234,7 +234,7 @@
     <p class="lg-text first-color text-center"><b>Наши клиенты</b></p>
     <p class="first-color text-center">Нам доверяют представители различных сфер бизнеса и мы очень ценим их доверие</p>
     <div class="d-flex mt-3">
-      <div *ngFor="let client of ourClients" class="d-flex align-items-center justify-content-center w-25 p-2">
+      <div *ngFor="let client of data.ourClients" class="d-flex align-items-center justify-content-center w-25 p-2">
         <img [src]="client.src" alt="client" style="height: 100px;">
       </div>
     </div>
@@ -335,7 +335,7 @@
       </div>
       <div class="ml-2">
         <p class="first-color"><b>+7(775) 728 61 48</b></p>
-        <p class="sm-text linked-text" (click)="toggleModal('#orderModal')">Заказать звонок</p>
+        <p class="sm-text linked-text" (click)="showModal('#orderModal')">Заказать звонок</p>
       </div>
     </div>
   
@@ -358,56 +358,47 @@
   <div class="es-modal-dialog es-modal-dialog-right">
     <div class="es-modal-title">
       <span>Заказать звонок</span>
-      <button type="button" class="close" aria-label="Close" (click)="toggleModal('#orderModal')">
+      <button type="button" class="close" aria-label="Close" (click)="hideModal('#orderModal')">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
 
     <div class="es-modal-content">
-      <div>
-        <span class="sm-text">Ваше имя</span>
-        <input type="text" class="form-control mt-1" placeholder="Введите имя">
-      </div>
 
-      <div class="mt-2">
-        <span class="sm-text">Номер телефона</span>
-        <input type="text" class="form-control mt-1" prefix="+7 " mask="(000) 000-00-00" showMaskTyped="true">
-      </div>
+      <div *ngIf="!orderSended">
 
-      <div class="mt-2">
-        <span class="sm-text">Комментарий (необязательно)</span>
-        <textarea class="form-control" placeholder="Введите ваш комментарий"></textarea>
+        <div>
+          <span class="sm-text">Ваше имя</span>
+          <input type="text" class="form-control mt-1" placeholder="Введите имя" [(ngModel)]="order.clientName">
+        </div>
+        
+        <div class="mt-2">
+          <span class="sm-text">Номер телефона</span>
+          <input type="text" class="form-control mt-1" prefix="+7 " mask="(000) 000-00-00" [(ngModel)]="order.phone" showMaskTyped="true">
+        </div>
+        
+        <div class="mt-2">
+          <span class="sm-text">Комментарий (необязательно)</span>
+          <textarea class="form-control" placeholder="Введите ваш комментарий" [(ngModel)]="order.comment"></textarea>
+        </div>
+        
+        <div class="alert alert-danger mt-2" *ngIf="orderError">{{orderError}}</div>
+        
+        <button class="es-btn es-first-btn w-100 mx-auto d-block mt-3" (click)="sendOrder()">Заказать звонок</button>
       </div>
-
-      <button class="es-btn es-first-btn w-100 mx-auto d-block mt-3" (click)="changeModal('#thankYouModal')">Заказать звонок</button>
+      <div *ngIf="orderSended">
+        <span>Ваша заявка находится в обработке. Мы свяжемся с Вами в ближайшее время.</span>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="es-modal" id="thankYouModal">
-  <div class="es-modal-dialog es-modal-dialog-right">
-    <div class="es-modal-title">
-      <span>Спасибо за заявку!</span>
-      <button type="button" class="close" aria-label="Close" (click)="toggleModal('#thankYouModal')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-
-    <div class="es-modal-content">
-      <div>
-        <span class="sm-text">Ваша заявка находится в обработке. Мы свяжемся с Вами в ближайшее время.</span>
-      </div>
-
-      <button class="es-btn es-first-btn w-100 mx-auto d-block mt-3" (click)="toggleModal('#thankYouModal')">Главная</button>
-    </div>
-  </div>
-</div>
 
 <div class="es-modal" id="priceModal">
   <div class="es-price-modal-dialog">
     <div class="es-modal-title">
       <span>Подробный прайс</span>
-      <button type="button" class="close" aria-label="Close" (click)="toggleModal('#priceModal')">
+      <button type="button" class="close" aria-label="Close" (click)="hideModal('#priceModal')">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
@@ -424,95 +415,14 @@
             <th>6 мес.</th>
             <th>12 мес.</th>
           </tr>
-          <tr>
-            <td>XXXS</td>
-            <td>2,5м<sup>2</sup></td>
-            <td>8000</td>
-            <td>20 000</td>
-            <td>60 000</td>
-            <td>120 000</td>
-            <td>240 000</td>
-          </tr>
-          <tr>
-            <td>XXS</td>
-            <td>3,5м<sup>2</sup></td>
-            <td>8000</td>
-            <td>28 000</td>
-            <td>84 000</td>
-            <td>168 000</td>
-            <td>336 000</td>
-          </tr>
-          <tr>
-            <td>XS</td>
-            <td>4,5м<sup>2</sup></td>
-            <td>8000</td>
-            <td>36 000</td>
-            <td>108 000</td>
-            <td>216 000</td>
-            <td>432 000</td>
-          </tr>
-          <tr>
-            <td>S</td>
-            <td>6м<sup>2</sup></td>
-            <td>7500</td>
-            <td>45 000</td>
-            <td>135 000</td>
-            <td>270 000</td>
-            <td>540 000</td>
-          </tr>
-          <tr>
-            <td>M</td>
-            <td>8м<sup>2</sup></td>
-            <td>7000</td>
-            <td>56 000</td>
-            <td>168 000</td>
-            <td>336 000</td>
-            <td>672 000</td>
-          </tr>
-          <tr>
-            <td>M+</td>
-            <td>10м<sup>2</sup></td>
-            <td>6500</td>
-            <td>65 000</td>
-            <td>195 000</td>
-            <td>390 000</td>
-            <td>780 000</td>
-          </tr>
-          <tr>
-            <td>L</td>
-            <td>12м<sup>2</sup></td>
-            <td>6500</td>
-            <td>78 000</td>
-            <td>234 000</td>
-            <td>468 000</td>
-            <td>936 000</td>
-          </tr>
-          <tr>
-            <td>XL</td>
-            <td>15м<sup>2</sup></td>
-            <td>6500</td>
-            <td>97 500</td>
-            <td>292 500</td>
-            <td>585 000</td>
-            <td>1 170 000</td>
-          </tr>
-          <tr>
-            <td>XXL</td>
-            <td>18м<sup>2</sup></td>
-            <td>6500</td>
-            <td>117 000</td>
-            <td>351 000</td>
-            <td>702 000</td>
-            <td>1 404 000</td>
-          </tr>
-          <tr>
-            <td>XXXL</td>
-            <td>22м<sup>2</sup></td>
-            <td>6500</td>
-            <td>143 000</td>
-            <td>429 000</td>
-            <td>858 000</td>
-            <td>1 716 000</td>
+          <tr *ngFor="let price of data.priceList">
+            <td>{{price.type}}</td>
+            <td>{{price.place}}</td>
+            <td>{{price.price | kztCurrency:'int'}}</td>
+            <td>{{price.price1 | kztCurrency:'int'}}</td>
+            <td>{{price.price3 | kztCurrency:'int'}}</td>
+            <td>{{price.price6 | kztCurrency:'int'}}</td>
+            <td>{{price.price12 | kztCurrency:'int'}}</td>
           </tr>
           
         </table>

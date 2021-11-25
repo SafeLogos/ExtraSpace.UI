@@ -8,6 +8,8 @@ import { KztCurrencyPipe } from './pipes/kzt-currency.pipe';
 import { SafePipe } from './pipes/safe.pipe';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
 import { FormsModule } from '@angular/forms';
+import { LoaderComponent } from './components/loader/loader.component';
+import { HttpClientModule } from '@angular/common/http';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
@@ -16,12 +18,14 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     AppComponent,
     HomeComponent,
     KztCurrencyPipe,
-    SafePipe
+    SafePipe,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     NgxMaskModule.forRoot()
   ],
   providers: [],

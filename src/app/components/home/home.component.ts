@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { OrderModel } from 'src/app/models/order-model';
+import { LoaderService } from 'src/app/services/loader.service';
+import { ModalService } from 'src/app/services/modal.service';
+import { OrdersService } from 'src/app/services/orders.service';
+import { _data } from './home.data'
 declare var $: any;
 
 @Component({
@@ -8,73 +13,19 @@ declare var $: any;
 })
 export class HomeComponent implements OnInit {
 
-  whyImages: any[] = [
-   { imgPath: '../../../assets/images/icons/online-payment.png', title: 'Онлайн оплата и бронирование' },
-   { imgPath: '../../../assets/images/icons/cleaning.png', title: 'Чистота и сухоть в помещениях' },
-   { imgPath: '../../../assets/images/icons/biometrical.png', title: 'Биометрический доступ' },
-   { imgPath: '../../../assets/images/icons/packing.png', title: 'Коробки и упаковочные материалы' },
-   { imgPath: '../../../assets/images/icons/moving.png', title: 'Услуги упаковки и переезда' },
-   { imgPath: '../../../assets/images/icons/warhouse.png', title: 'Современные и удобные склады' }
-  ]
+  data: any;
+  orderError: string = '';
+  orderSended: boolean = false;
 
-  services: any[] = [
-    {  title:'Наши боксы', img: '../../../assets/images/services/door.png', slideInfo: ['Сухие отопляемые хранилища','Проветриваемые вентялицией','Удобное центральное расположение складов']},
-    {  title:'Облачное хранилище', img: '../../../assets/images/services/boxes.png', slideInfo: ['Цена только за тот объём, который храните', 'Дешевле в разы обычных хранилищ', 'Неограниченное место']},
-    {  title:'Безопасность', img: '../../../assets/images/services/lock.png', slideInfo: ['Видеонаблюдение', 'Охрана 24/7', 'Биометрические замки']},    
-  ]
-
-  preorders: any[] = [
-    { src: '../../../assets/images/orders-description/1_order.png', size: 2, squarePrice: 8000, description: 'Самый маленький по площади хранилище. Идеально подходит для хранения личных вещей (сумки, коробки, чемоданы, резина).' },
-    { src: '../../../assets/images/orders-description/2_order.png', size: 4, squarePrice: 7500, description: 'Хранилище среднего размера. Предназначен для небольшого качества среднегабаритной мебели (письменный стол, пианино и огромное количество коробок сверху). '},
-    { src: '../../../assets/images/orders-description/3_order.png', size: 8, squarePrice: 7000, description: 'Внушительное хранилище. Спокойно вместит в себя всю мебель одной большой зальной комнаты.' },
-    { src: '../../../assets/images/orders-description/4_order.png', size: 15,squarePrice: 6500, description: 'Ангар. В такое хранилище можно завести всю мебель с 4-х комнатной квартиры и оставить машину.' }
-  ]
-  
-  activeDescription: string = 'Самый маленький по площади склад. Идеально подходит для хранения личных вещей (сумки, коробки, чемоданы, резина)';
-  activeSquarePrice: number = 8000;
-  activePreorderSize: number = 2;
-
-  careImages: any[] = [
-    [
-      { src: '../../../assets/images/care/care_1.png' },
-      { src: '../../../assets/images/care/care_2.png' },
-      { src: '../../../assets/images/care/care_3.png' },
-      { src: '../../../assets/images/care/care_4.png' }
-    ],
-
-    [
-      { src: '../../../assets/images/care/care_1.png' },
-      { src: '../../../assets/images/care/care_2.png' },
-      { src: '../../../assets/images/care/care_3.png' },
-      { src: '../../../assets/images/care/care_4.png' }
-    ],
-
-    [
-      { src: '../../../assets/images/care/care_1.png' },
-      { src: '../../../assets/images/care/care_2.png' },
-      { src: '../../../assets/images/care/care_3.png' },
-      { src: '../../../assets/images/care/care_4.png' }
-    ]
-  ]
-
-  monthRows: any[] = [
-    { months: [1, 2, 3, 5] },
-    { months: [6, 7, 9, 12] }
-  ]
-  activeMonth: number = 1;
-
-  ourClients: any[] = [
-    { src: '../../../assets/images/our-clients/client_1.png' },
-    { src: '../../../assets/images/our-clients/client_2.png' },
-    { src: '../../../assets/images/our-clients/client_3.png' },
-    { src: '../../../assets/images/our-clients/client_4.png' }
-  ]
-
-  constructor() { }
+  constructor(private loader: LoaderService,
+    private modal: ModalService,
+    private orderService: OrdersService) { this.data = _data; }
 
   ngOnInit(): void {
   }
 
+  order: OrderModel = new OrderModel();
+  
 
   smoothScroll(id: string){
     if(!id) return;
@@ -83,14 +34,46 @@ export class HomeComponent implements OnInit {
   });
   }
 
+  showModal(id: string){
+    this.modal.showModal(id)
+    this.orderSended = false;
+  }
+
+  hideModal(id: string){
+    this.modal.hideModal(id);
+    this.orderSended = false;
+  }
+
   toggleModal(id: string){
     $(id).toggleClass('es-modal-show');
+    this.orderSended = false;
   }
 
-  changeModal(id: string) {
-    $('#orderModal').toggleClass('es-modal-show');
-    $(id).toggleClass('es-modal-show');
-  }
+  sendOrder(){
+    if(!this.order.clientName || this.order.clientName.length < 2){
+      this.orderError = 'Не заполнено имя'
+      return
+    }
+    else if(!this.order.phone || this.order.phone.length != 10){
+      this.orderError = 'Не заполнен номер телефона'
+      return
+    }    
 
+    else if(this.order.comment && this.order.comment.length > 300){
+      this.orderError = 'Комментарий слишком длянный'
+      return
+    }
+
+    this.orderError = '';
+    this.loader.showLoader();
+    this.orderService.addOrder(this.order).subscribe(data => {
+      this.loader.hideLoader();
+      if(data.code != 0)
+        this.orderError = 'Не удалось сохраить заявку. Попробуйте позже'
+      else
+        this.orderSended = true;
+    })
+
+  }
   
 }
