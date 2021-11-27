@@ -37,12 +37,19 @@
 
   <div class="right-welcome w-100 w-sm-50">
     <div class="right-welcome-navbar pt-4">
-      <div class="d-flex align-items-center justify-content-end pr-4">
+      <div class="d-none d-sm-flex align-items-center justify-content-end pr-4">
         <div>
           <p class="text-white mb-0" style="font-size:23px;font-weight: 300;">+7 (775) 728 61 48</p>
           <p class="text-white text-right mb-0 order-call" (click)="showModal('#orderModal')">Заказать звонок</p>
         </div>
         <button type="button" class="es-btn es-second-btn-outline es-btn-color-white ml-4 px-5 py-2" (click)="showModal('#orderModal')"> Сдать вещи</button>
+      </div>
+
+      <div class="d-flex d-sm-none">
+        <img  src="../../../assets/images/logo.png" class="pl-2" height="50" alt="logo">
+        <div class="d-flex align-items-center justify-content-end w-100">
+          <i class="fa fa-bars text-white mr-4" style="font-size: 25px;" (click)="showModal('#menuModal')"></i>
+        </div>
       </div>
     </div>
 
@@ -54,11 +61,46 @@
     <div class="right-welcome-boxes">
       <img class="boxes-image" src="../../../assets/images/welcome-boxes.png" />
     </div>
+
+    <div type="button" class="es-btn es-second-btn-outline es-btn-color-white d-sm-none d-block m-2 px-5 py-2" (click)="showModal('#orderModal')"> Сдать вещи</div>
+
+
+    <div class="d-sm-none d-flex p-3">
+      <div>
+        <i class="fa fa-lock sm-icon second-color"></i>
+        <p class="sm-text text-white">Высокая <br /> безопасность</p>
+      </div>
+      <div class="ml-5">
+        <i class="fa fa-map-marker sm-icon second-color"></i>
+        <p class="sm-text text-white">Центральное <br /> расположение</p>
+      </div>
+      <div class="ml-5">
+        <i class="fa fa-clock-o sm-icon second-color"></i>
+        <p class="sm-text text-white">Доступ <br /> к вещам 24/7</p>
+      </div>
+    </div>
+
+
+    
+
   </div>
 </div>
 
-<div class="why-extraspace d-block d-sm-flex   mt-5" id="why-extraspace">
-  <div class="left-why-extraspace w-100 w-sm-50 mr-4">
+<div class="why-extraspace d-block d-sm-flex flex-row-reverse mt-5" id="why-extraspace">
+
+
+  <div class="right-why-extraspace w-100 w-sm-50 p-3">
+    <p style="color: #253350; font-weight: 700; font-size:39px; line-height: 0.9em">
+      Почему клиенты <br /> выбирают Extra Space 
+    </p>
+    <p style="font-weight: 400; font-size:17px" class="pt-3 first-color">
+      Наша компания предоставляет высокое качество сервиса. Сотрудники ExtraSpace позаботятся о том, чтобы Ваши вещи
+      хранились в надлежих условиях.
+    </p>
+    <div type="button" class="es-btn es-first-btn mt-2 d-none d-sm-block" (click)="showModal('#orderModal')">Арендовать бокс</div>
+</div>
+
+  <div class="left-why-extraspace w-sm-50 mr-4">
     <div class="row">
       <div class="why-image-element col-12 col-sm-6" *ngFor="let wi of data.whyImages">
         <div class="d-flex align-items-center p-3">
@@ -70,22 +112,16 @@
   </div>
 
 
-  <div class="right-why-extraspace w-100 w-sm-50 pt-4">
-    <p style="color: #253350; font-weight: 700; font-size:39px; line-height: 0.9em">
-      Почему клиенты <br /> выбирают Extra Space 
-    </p>
-    <p style="font-weight: 400; font-size:17px" class="pt-3 first-color">
-      Наша компания предоставляет высокое качество сервиса. Сотрудники ExtraSpace позаботятся о том, чтобы Ваши вещи
-      хранились в надлежих условиях.
-    </p>
-    <button type="button" class="btn first-background-color px-5 py-1.5 mt-2" (click)="showModal('#orderModal')">Арендовать бокс</button>
-  </div>
+ 
 </div>
+
+<div type="button" class="es-btn es-first-btn-outline m-2 mt-4 d-block d-sm-none" (click)="showModal('#orderModal')">Арендовать бокс</div>
+
 
 <div class="services mt-5" id="services">
   <div class="services-mobile p-4"></div>
-  <p class="text-center first-color lg-text"> <b>Услуги складского хранения </b></p>
-  <p class="text-center first-color">Компания Extra Space предоставляет несколько видов услуг, <br /> которые сделают
+  <p class="text-left text-sm-center px-3 first-color md-text lg-sm-text"> <b>Услуги складского хранения </b></p>
+  <p class="text-left text-sm-center px-3 first-color">Компания Extra Space предоставляет несколько видов услуг, <br /> которые сделают
     Вашу жизнь легче</p>
 
   <div class="containe mt-2">
@@ -113,7 +149,7 @@
         </div>
       </div>
 
-      <div class="service-last-element col-6">
+      <div class="service-last-element col-12 col-sm-6">
         <div class="service-last-element-content secondary-background-color d-flex flex-column p-4">
           <p class="service-last-element-title first-color mb-0"><b>Переезды под ключ</b></p>
           <ul class="first-color mt-2">
@@ -132,7 +168,7 @@
 </div>
 
 
-<div class="preorders d-flex mt-5" id="preorders">
+<div class="preorders d-block d-sm-flex mt-5" id="preorders">
   <div class="preorder-view d-flex align-items-center justify-content-center px-4 m-auto">
     <div>
       <img class="w-100" [class.d-none]="data.activePreorderSize != p.size" *ngFor="let p of data.preorders" [src]="p.src"
@@ -142,10 +178,10 @@
     </div>
   </div>
 
-  <div class="preorder-selection m-auto">
-    <div class="d-flex">
-      <p class="lg-text first-color" style="line-height: 0.9;"><b>Боксы для хранения вещей</b></p>
-      <p class="first-color cursor-pointer p-2 w-25 text-right" (click)="showModal('#priceModal')">Таблица цен</p>
+  <div class="preorder-selection m-auto px-2">
+    <div class="d-flex align-items-start">
+      <p class="md-text lg-sm-text first-color" style="line-height: 0.9;"><b>Боксы для хранения вещей</b></p>
+      <p class="first-color cursor-pointer w-25 text-right" (click)="showModal('#priceModal')">Таблица цен</p>
     </div>
     <p class="first-color mb-1">Выберите размер бокса</p>
     <div class="size-buttons d-flex">
@@ -164,14 +200,14 @@
 
     <div class="preorder-calculator first-color secondary-light-background-color rounded mt-5 mr-2">
       <div class="preorder-calculator-head d-flex p-3">
-        <p class="w-50"><b> Стоимость в месяц</b></p>
+        <p class="w-50 d-none d-sm-block"><b> Стоимость в месяц</b></p>
         <p class="w-50">Площадь: <b>{{data.activePreorderSize}}м²</b></p>
-        <p class="w-50">Цена за м²: <b>{{data.activeSquarePrice | kztCurrency:'int'}}</b></p>
+        <p class="w-50">Цена за м²: <b>{{data.activeSquarePrice | kztCurrency:'int':'kzt'}}</b></p>
       </div>
       <div class="preorder-calculator-footer d-flex p-2 px-4">
         <div>
-          <p class="md-text"><b>{{(data.activePreorderSize * data.activeSquarePrice)|kztCurrency:'int'}}/мес</b></p>
-          <p class="sm-text">Итог: <b>{{(data.activePreorderSize * data.activeMonth * data.activeSquarePrice) | kztCurrency:'int'}}</b></p>
+          <p class="md-text"><b>{{(data.activePreorderSize * data.activeSquarePrice)|kztCurrency:'int':'kzt'}}/мес</b></p>
+          <p class="sm-text">Итог: <b>{{(data.activePreorderSize * data.activeMonth * data.activeSquarePrice) | kztCurrency:'int':'kzt'}}</b></p>
         </div>
         <button class="es-btn es-first-btn m-2" (click)="showModal('#orderModal')">Заказать</button>
       </div>
@@ -188,9 +224,9 @@
   <div id="carouselExampleControls" class="carousel slide mt-3" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item" [class.active]="i == 0" *ngFor="let card of data.careImages; let i = index;">
-        <div class="d-flex align-items-center">
-          <div *ngFor="let img of card" class="w-25 p-2">
-            <div class="d-flex justify-content-center w-100" style="height: 290px; overflow: hidden;text-align: center;">
+        <div class="row align-items-center">
+          <div *ngFor="let img of card" class="col-6 col-sm-3 p-2">
+            <div class="img-box d-flex justify-content-center w-100" style="overflow: hidden;text-align: center;">
               <img class="h-100" [src]="img.src" alt="slide">
             </div>
           </div>
@@ -212,7 +248,7 @@
 <div class="about mt-5" id="about">
   <div class="about-mobile p-4"></div>
   <div class="about-inner secondary-background-color d-flex align-items-center ">
-    <div class="left-about text-right mr-5">
+    <div class="left-about text-right mr-5 d-none d-sm-block">
       <img src="../../../assets/images/about/logo-big.png" alt="about-main">
     </div>
     <div class="right-about p-5">
@@ -233,20 +269,20 @@
   <div class="p-4">
     <p class="lg-text first-color text-center"><b>Наши клиенты</b></p>
     <p class="first-color text-center">Нам доверяют представители различных сфер бизнеса и мы очень ценим их доверие</p>
-    <div class="d-flex mt-3">
-      <div *ngFor="let client of data.ourClients" class="d-flex align-items-center justify-content-center w-25 p-2">
-        <img [src]="client.src" alt="client" style="height: 100px;">
+    <div class="row mt-3">
+      <div *ngFor="let client of data.ourClients" class="d-flex align-items-center justify-content-center col-6 col-sm-3 p-2">
+        <img [src]="client.src" alt="client" style="width: 80%;">
       </div>
     </div>
   </div>
 </div>
 
 
-<div class="addresses d-none d-sm block" id="addresses">
+<div class="addresses" id="addresses">
   <div class="addresses-mobile p-4"></div>
-  <div class="address d-flex">
+  <div class="address d-flex flex-column flex-sm-row">
     <div class="address-left first-background-color p-4">
-      <p class="md-text text-white h-50">Алматы, ул.Абиша <br> Кекилбайулы 270, блок 4, <br> ЖК “Mega Towers”</p>
+      <p class="md-text text-white">Алматы, ул.Абиша <br> Кекилбайулы 270, блок 4, <br> ЖК “Mega Towers”</p>
       <div class="row mt-4" >
         <div class="col-6 mb-3">
           <p class="first-color-light">РЕЖИМ РАБОТЫ</p>
@@ -271,14 +307,15 @@
         </div>
       </div>
     </div>
-    <div class="address-right">
-      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A941acd588a8f41d333e3ae6e97cf64fa752e3a5c5f246bb49e78782d04a74c61&amp;source=constructor" width="500" height="400" frameborder="0"></iframe>
+    <div class="address-right w-100 w-sm-50">
+      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A941acd588a8f41d333e3ae6e97cf64fa752e3a5c5f246bb49e78782d04a74c61&amp;source=constructor"
+      class="w-100 h-100" style="min-height: 300px;" frameborder="0"></iframe>
     </div>
   </div>
 
-  <div class="address d-flex mt-2">
+  <div class="address d-flex flex-column flex-sm-row mt-2">
     <div class="address-left address-light p-4">
-      <p class="md-text first-color h-50">Алматы, Касымова 32, <br> ЖК “Есентай”</p>
+      <p class="md-text first-color">Алматы, Касымова 32, <br> ЖК “Есентай”</p>
       <div class="row mt-4" >
         <div class="col-6 mb-3">
           <p class="first-color-light">РЕЖИМ РАБОТЫ</p>
@@ -303,18 +340,19 @@
         </div>
       </div>
     </div>
-    <div class="address-right">
-      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A5e2e2165f3823a1220eb9e5da065970bed5849e68dcd23af0ab717d6c90a4936&amp;source=constructor"  width="500" height="400" frameborder="0"></iframe>
+    <div class="address-right w-100 w-sm-50">
+      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A5e2e2165f3823a1220eb9e5da065970bed5849e68dcd23af0ab717d6c90a4936&amp;source=constructor" 
+       class="w-100 h-100" style="min-height: 300px;" frameborder="0"></iframe>
     </div>
   </div>
 </div>
 
-<div class="footer mt-5 d-flex">
+<div class="footer mt-5 d-none d-sm-flex ">
   <div class="footer-logo m-5">
     <img src="../../../assets/images/about/logo-big.png" alt="about-main" style="width: 55%;">
   </div>
 
-  <div class="anchors d-flex">
+  <div class="d-flex">
     <div class="col-6 mr-5">
       <p class="m-2 linked-text" (click)="smoothScroll('#why-extraspace')">Преимущества</p>
       <p class="m-2 linked-text" (click)="smoothScroll('#services')">Услуги</p>
@@ -351,6 +389,39 @@
   </div>
 
 
+</div>
+
+<div class="footer-mobile mt-4 d-block d-sm-none">
+  <div class="d-flex align-items-center">
+    <div class="w-50 text-center">
+      <img src="../../../assets/images/logo.png" class="w-75" alt="logo">
+    </div>
+    <div class="w-50">
+      <div class="text-right first-color px-3">
+        <p><b>+7(775) 728 61 48</b></p>
+        <p class="sm-text">Заказать звонок</p>
+
+        <p class="mt-2"><a href="https://www.instagram.com/extraspace.kz/" target="_blank"><b>@extraspace.kz</b></a></p>
+        <p class="sm-text">Мы в Instagram</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex mt-2">
+    <div class="w-50 d-flex justify-content-center">
+      <div>
+        <p class="m-2 linked-text" (click)="smoothScroll('#why-extraspace')">Преимущества</p>
+        <p class="m-2 linked-text" (click)="smoothScroll('#services')">Услуги</p>
+        <p class="m-2 linked-text" (click)="smoothScroll('#preorders')">Боксы</p>
+        <p class="m-2 linked-text" (click)="smoothScroll('#care')">Галерея</p>
+      </div>
+    </div>
+    <div class="w-50">
+      <p class="m-2 linked-text" (click)="smoothScroll('#about')">О нас</p>
+      <p class="m-2 linked-text" (click)="smoothScroll('#our-clients')">Клиенты</p>
+      <p class="m-2 linked-text" (click)="smoothScroll('#addresses')">Адреса</p>
+    </div>
+  </div>
 </div>
 
 
@@ -395,7 +466,7 @@
 
 
 <div class="es-modal" id="priceModal">
-  <div class="es-price-modal-dialog">
+  <div class="es-modal-dialog">
     <div class="es-modal-title">
       <span>Подробный прайс</span>
       <button type="button" class="close" aria-label="Close" (click)="hideModal('#priceModal')">
@@ -405,25 +476,29 @@
 
     <div class="es-modal-content">
       <div class="prices-table">
-        <table id="prices">
-          <tr>
-            <th>Аренда склада</th>
-            <th>Площадь(м<sup>2</sup>)</th>
-            <th>Цена за м<sup>2</sup></th>
-            <th>1 мес.</th>+
-            <th>3 мес.</th>
-            <th>6 мес.</th>
-            <th>12 мес.</th>
+        <table id="prices" class="es-table w-100">
+          <thead>
+            <tr>
+              <th>Аренда <br> склада</th>
+              <th>Площадь</th>
+              <th>Цена м<sup>2</sup></th>
+              <th>1 мес.</th>
+              <th class="d-none d-sm-table-cell">3 мес.</th>
+              <th class="d-none d-sm-table-cell">6 мес.</th>
+              <th class="d-none d-sm-table-cell">12 мес.</th>
           </tr>
+        </thead>
+        <tbody>
           <tr *ngFor="let price of data.priceList">
             <td>{{price.type}}</td>
             <td>{{price.place}}</td>
             <td>{{price.price | kztCurrency:'int'}}</td>
             <td>{{price.price1 | kztCurrency:'int'}}</td>
-            <td>{{price.price3 | kztCurrency:'int'}}</td>
-            <td>{{price.price6 | kztCurrency:'int'}}</td>
-            <td>{{price.price12 | kztCurrency:'int'}}</td>
+            <td class="d-none d-sm-table-cell">{{price.price3 | kztCurrency:'int'}}</td>
+            <td class="d-none d-sm-table-cell">{{price.price6 | kztCurrency:'int'}}</td>
+            <td class="d-none d-sm-table-cell">{{price.price12 | kztCurrency:'int'}}</td>
           </tr>
+        </tbody>
           
         </table>
       </div>
@@ -445,6 +520,38 @@
       </div>
 
         
+    </div>
+  </div>
+</div>
+
+<div class="es-modal" id="menuModal">
+  <div class="es-modal-dialog es-modal-dialog-right">
+    <div class="es-modal-title">
+      <span></span>
+      <button type="button" class="close" aria-label="Close" (click)="hideModal('#menuModal')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="es-modal-content">
+      <img src="../../../assets/images/logo.png" alt="logo" class="w-50 d-block m-auto">
+
+      <div class="w-50 m-auto">
+
+        <div class="mt-5">
+          <div class="">
+          <p class="first-color"><b>+7(775) 728 61 48</b></p>
+          <p class="sm-text linked-text" (click)="hideModal('#menuModal');showModal('#orderModal');">Заказать звонок</p>
+        </div>
+      </div>
+      
+      <div class=" mt-3">
+        <div>
+          <a href="https://www.instagram.com/extraspace.kz/" target="_blank"><b>@extraspace.kz</b></a>
+          <p class="sm-text">Мы в Instagram</p>
+        </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

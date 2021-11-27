@@ -10,12 +10,7 @@
     min-height: 300px;
 }
 
-/* .unstyled-link{
-    color: inherit;
-} */
-
 .unstyled-link:hover{
-    /* text-decoration: none; */
     color: inherit;
 }
 
@@ -60,10 +55,6 @@ img.boxes-image {
 
 .why-image-element p{
     font-size: 15px;
-}
-
-.service-elements{
-    width: 90%;
 }
 
 .service-element{
@@ -172,21 +163,54 @@ img.boxes-image {
     width: 35%;
 }
 
-
-/* .about-inner {
-    background-image: url("../../../assets/images/about/about-main.png");
-} */
+#carouselExampleControls .img-box{
+    height: 200px;
+}
 
 .address-light {
     background-color: #f5e9d1;
 }
 
 .order-call {
-    margin-top:-7px; 
-    font-size:12px;
+    margin-top: -7px; 
+    font-size: 12px;
 }
 
 .order-call:hover {
     text-decoration: underline;
     cursor: pointer;
+}
+
+
+
+@media(max-width: 576px){
+    .right-welcome {
+        border-bottom-left-radius: 0%;
+    }
+
+    .preorder-view {
+        width: auto;
+    }
+
+    .preorder-selection{
+        width: auto;
+    }
+
+    .right-about{
+        width: auto;
+    }
+
+
+
+    .service-element:nth-of-type(1) img, .service-element:nth-of-type(3) img{
+        transform: translate(70%, -5%);
+    }
+    
+    .service-element:nth-of-type(2) img{
+        transform: translate(0%, -10%);
+    }
+
+    .right-welcome-popout {
+        transform: translate(-25%, 00px);
+    }
 }

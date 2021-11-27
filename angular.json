@@ -28,7 +28,8 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css",
               "src/buttons.css",
-              "src/modal.css"
+              "src/modal.css",
+              "src/table.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",

@@ -62,16 +62,16 @@ export var _data = {
   ],
 
   priceList: [
-      { type: 'XXXS', place: '2,5м2', price: 8000, price1: 20000, price3: 60000, price6: 120000, price12: 240000 },
-      { type: 'XXS', place: '3,5м2', price: 8000, price1: 28000, price3: 840000, price6: 168000, price12: 336000 },
-      { type: 'XS', place: '4,5м2', price: 8000, price1: 36000, price3: 108000, price6: 216000, price12: 432000 },
-      { type: 'S', place: '6м2', price: 7500, price1: 45000, price3: 135000, price6: 270000, price12: 540000 },
-      { type: 'M', place: '8м2', price: 7000, price1: 56000, price3: 168000, price6: 336000, price12: 672000 },
-      { type: 'M+', place: '10м2', price: 6500, price1: 65000, price3: 195000, price6: 390000, price12: 780000 },
-      { type: 'L', place: '12м2', price: 6500, price1: 78000, price3: 234000, price6: 468000, price12: 936000 },
-      { type: 'XL', place: '15м2', price: 6500, price1: 97500, price3: 292500, price6: 585000, price12: 1170000 },
-      { type: 'XXL', place: '18м2', price: 6500, price1: 117000, price3: 351000, price6: 702000, price12: 1404000 },
-      { type: 'XXXL', place: '22м2', price: 6500, price1: 143000, price3: 459000, price6: 858000, price12: 1716000 }
+      { type: 'XXXS', place: '2,5м²', price: 8000, price1: 20000, price3: 60000, price6: 120000, price12: 240000 },
+      { type: 'XXS', place: '3,5м²', price: 8000, price1: 28000, price3: 840000, price6: 168000, price12: 336000 },
+      { type: 'XS', place: '4,5м²', price: 8000, price1: 36000, price3: 108000, price6: 216000, price12: 432000 },
+      { type: 'S', place: '6м²', price: 7500, price1: 45000, price3: 135000, price6: 270000, price12: 540000 },
+      { type: 'M', place: '8м²', price: 7000, price1: 56000, price3: 168000, price6: 336000, price12: 672000 },
+      { type: 'M+', place: '10м²', price: 6500, price1: 65000, price3: 195000, price6: 390000, price12: 780000 },
+      { type: 'L', place: '12м²', price: 6500, price1: 78000, price3: 234000, price6: 468000, price12: 936000 },
+      { type: 'XL', place: '15м²', price: 6500, price1: 97500, price3: 292500, price6: 585000, price12: 1170000 },
+      { type: 'XXL', place: '18м²', price: 6500, price1: 117000, price3: 351000, price6: 702000, price12: 1404000 },
+      { type: 'XXXL', place: '22м²', price: 6500, price1: 143000, price3: 459000, price6: 858000, price12: 1716000 }
   ]
 
 }
