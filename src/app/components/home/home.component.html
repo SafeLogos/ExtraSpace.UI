@@ -1,5 +1,5 @@
 <div class="welcome d-flex">
-  <div class="left-welcome w-50">
+  <div class="left-welcome w-50 d-none d-sm-block">
     <div class="left-welcome-navbar">
       <div class="d-flex align-items-center p-3">
         <div class="pl-2" style="width: 40%;"> <img style="height:50px;" src="../../../assets/images/logo.png" /></div>
@@ -11,7 +11,7 @@
       </div>
     </div>
 
-    <div class="left-welcome-main pl-4">
+    <div class="left-welcome-main pl-4"> 
       <h1 style="font-size:50px;" class="first-color"><strong>Ваш личный склад</strong></h1>
       <h5 style="font-weight: 350" class="first-color cpt-3">Храните свои вещи в лёгкой<br />
         доступности в центре города
@@ -35,7 +35,7 @@
     </div>
   </div>
 
-  <div class="right-welcome w-50">
+  <div class="right-welcome w-100 w-sm-50">
     <div class="right-welcome-navbar pt-4">
       <div class="d-flex align-items-center justify-content-end pr-4">
         <div>
@@ -57,10 +57,10 @@
   </div>
 </div>
 
-<div class="why-extraspace d-flex mt-5" id="why-extraspace">
-  <div class="left-why-extraspace w-50">
+<div class="why-extraspace d-block d-sm-flex   mt-5" id="why-extraspace">
+  <div class="left-why-extraspace w-100 w-sm-50 mr-4">
     <div class="row">
-      <div class="why-image-element col-6" *ngFor="let wi of data.whyImages">
+      <div class="why-image-element col-12 col-sm-6" *ngFor="let wi of data.whyImages">
         <div class="d-flex align-items-center p-3">
           <img [src]="wi.imgPath" alt="img">
           <p class="first-color mb-0 ml-2">{{wi.title}}</p>
@@ -70,7 +70,7 @@
   </div>
 
 
-  <div class="right-why-extraspace w-50 pt-4">
+  <div class="right-why-extraspace w-100 w-sm-50 pt-4">
     <p style="color: #253350; font-weight: 700; font-size:39px; line-height: 0.9em">
       Почему клиенты <br /> выбирают Extra Space 
     </p>
@@ -90,7 +90,7 @@
 
   <div class="containe mt-2">
     <div class="service-elements row m-auto">
-      <div class="service-element col-6 mb-4"  *ngFor="let service of data.services;">
+      <div class="service-element col-12 col-sm-6 mb-4"  *ngFor="let service of data.services;">
         <div class="service-element-view">
           <div class="service-slide-container">
 
@@ -242,7 +242,7 @@
 </div>
 
 
-<div class="addresses" id="addresses">
+<div class="addresses d-none d-sm block" id="addresses">
   <div class="addresses-mobile p-4"></div>
   <div class="address d-flex">
     <div class="address-left first-background-color p-4">
@@ -328,7 +328,7 @@
     </div>
   </div>
 
-  <div class="footer-contacts pl-5">
+  <div class="footer-contacts pl-5 d-none d-sm-block">
     <div class="footer-phone d-flex">
       <div class="footer-circle">
         <i class="fa fa-phone text-white mt-2"></i>
@@ -410,7 +410,7 @@
             <th>Аренда склада</th>
             <th>Площадь(м<sup>2</sup>)</th>
             <th>Цена за м<sup>2</sup></th>
-            <th>1 мес.</th>
+            <th>1 мес.</th>+
             <th>3 мес.</th>
             <th>6 мес.</th>
             <th>12 мес.</th>

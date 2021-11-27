@@ -10,6 +10,7 @@
     --lg-text: 40px;
     --md-text: 25px;
     --sm-text: 13px;
+
 }
 
 @font-face {
@@ -139,4 +140,11 @@ p{
 
 .footer-circle > i {
     font-size: 30px;
+}
+
+
+@media(min-width: 576px) {
+    .w-sm-50{
+        width: 50%!important;
+    }
 }
