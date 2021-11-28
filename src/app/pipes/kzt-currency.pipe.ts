@@ -16,7 +16,6 @@ export class KztCurrencyPipe implements PipeTransform {
     if(args){
       for(let i: number = 0; i < args.length; i++)
       {
-        console.log('s')
         if(args[i] == 'int'){
           str = str.substr(0, str.indexOf('.'))
         }
