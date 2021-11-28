@@ -12,10 +12,7 @@
     --sm-text: 13px;
 }
 
-@font-face {
-    font-family: inter;
-    src: url(/assets/fonts/inter/Inter-VariableFont_slnt\,wght.ttf);
-}
+
 
 body{
     font-family: inter;
