@@ -42,7 +42,7 @@
           <p class="text-white mb-0" style="font-size:23px;font-weight: 300;">+7 (775) 728 61 48</p>
           <p class="text-white text-right mb-0 order-call" (click)="showModal('#orderModal')">Заказать звонок</p>
         </div>
-        <button type="button" class="es-btn es-second-btn-outline es-btn-color-white ml-4 px-5 py-2" (click)="showModal('#orderModal')"> Сдать вещи</button>
+        <button class="es-btn es-second-btn-outline es-btn-color-white ml-4 px-5 py-2" (click)="showModal('#orderModal')"> Сдать вещи</button>
       </div>
 
       <div class="d-flex d-sm-none">
@@ -62,7 +62,10 @@
       <img class="boxes-image" src="../../../assets/images/welcome-boxes.png" />
     </div>
 
-    <div type="button" class="es-btn es-second-btn-outline es-btn-color-white d-sm-none d-block m-2 px-5 py-2" (click)="showModal('#orderModal')"> Сдать вещи</div>
+    <div>
+
+      <div class="es-btn es-second-btn-outline es-btn-color-white d-sm-none d-block m-2 px-5 py-2" (click)="showModal('#orderModal')"> Сдать вещи</div>
+    </div>
 
 
     <div class="d-sm-none d-flex p-3">
@@ -97,7 +100,7 @@
       Наша компания предоставляет высокое качество сервиса. Сотрудники ExtraSpace позаботятся о том, чтобы Ваши вещи
       хранились в надлежих условиях.
     </p>
-    <div type="button" class="es-btn es-first-btn mt-2 d-none d-sm-block" (click)="showModal('#orderModal')">Арендовать бокс</div>
+    <div class="es-btn es-first-btn mt-2 d-none d-sm-block" (click)="showModal('#orderModal')">Арендовать бокс</div>
 </div>
 
   <div class="left-why-extraspace w-sm-50 mr-4">
@@ -115,7 +118,7 @@
  
 </div>
 
-<div type="button" class="es-btn es-first-btn-outline m-2 mt-4 d-block d-sm-none" (click)="showModal('#orderModal')">Арендовать бокс</div>
+  <div  class="es-btn es-first-btn-outline m-2 mt-4 d-block d-sm-none" (click)="showModal('#orderModal')">Арендовать бокс</div>
 
 
 <div class="services mt-5" id="services">
